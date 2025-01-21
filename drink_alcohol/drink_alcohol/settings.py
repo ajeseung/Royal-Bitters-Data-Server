@@ -99,7 +99,7 @@ CORS_ALLOW_HEADERS = [
 KAKAO = {
     'LOGIN_URL': os.getenv('KAKAO_LOGIN_URL'),
     'CLIENT_ID': os.getenv('KAKAO_CLIENT_ID'),
-    'REDIRECT_URI': os.getenv('KAKAO_REDIRECT_URI', '').split(","),
+    'REDIRECT_URI': os.getenv('KAKAO_REDIRECT_URI'),
     'TOKEN_REQUEST_URI': os.getenv('KAKAO_TOKEN_REQUEST_URI'),
     'USER_INFO_REQUEST_URI': os.getenv('KAKAO_USER_INFO_REQUEST_URI'),
 }

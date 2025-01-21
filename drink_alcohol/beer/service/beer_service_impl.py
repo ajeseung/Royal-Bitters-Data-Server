@@ -79,8 +79,8 @@ class BeerServiceImpl(BeerService):
 
 
             readBeerInfo = {
-                'id': foundBeer.getId(),
-                #'title': foundBeer.getTitle(),
+                'id': foundBeer.alcohol.getAlcoholId(),
+                'title': foundBeer.alcohol.title,
                 'price': foundBeerPrice.getPrice(),
                 'image': foundBeerImage.getImage(),
                 'description': foundBeerDescription.getDescription(),

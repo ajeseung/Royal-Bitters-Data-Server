@@ -34,7 +34,7 @@ class BeerRepositoryImpl(BeerRepository):
         priceSubQuery = BeerPrice.objects.filter(beer=OuterRef('pk')).values('price')[:1]
         imageSubQuery = BeerImage.objects.filter(beer=OuterRef('pk')).values('image')[:1]
         #titleSubQuery = Beer.getAlcohol().object.filter(beer=OuterRef('pk')).values('type')[:1]
-        titleSubQuery = Alcohol.objects.filter(beer_alcohols=OuterRef('pk')).values('type')[:1]
+        titleSubQuery = Alcohol.objects.filter(beer_alcohols=OuterRef('pk')).values('title')[:1]
 
         beerList = Beer.objects.annotate(
             price=Coalesce(Subquery(priceSubQuery), Value(0)),
@@ -83,10 +83,10 @@ class BeerRepositoryImpl(BeerRepository):
 
     def letRoleTypeBeer(self):
 
-        AlcoholRoleTypeIsBeer = Beer.objects.filter(
+        alcoholRoleTypeIsBeer = Beer.objects.filter(
             alcohol__type=RoleType.BEER.value  # Alcohol 테이블의 type 필드가 'BEER'인 데이터 필터링
         )
-        return AlcoholRoleTypeIsBeer
+        return alcoholRoleTypeIsBeer
 
 
         #try: # Beer 객체를 가져오면서 Alcohol 데이터도 가져옴
