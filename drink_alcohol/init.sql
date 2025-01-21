@@ -1,0 +1,3 @@
+CREATE DATABASE IF NOT EXISTS drink_alcohol;
+GRANT ALL PRIVILEGES ON drink_alcohol.* TO 'eddi'@'%';
+FLUSH PRIVILEGES;
